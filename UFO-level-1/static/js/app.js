@@ -5,10 +5,11 @@ console.log(tableData);
 // Reference table
 var tbody = d3.select("tbody");
 
-// get data into table columns
+//append each row
 tableData.forEach(function(sighting) {
     console.log(sighting);
     var row = tbody.append("tr");
+    //Object.entries for each sighting
     Object.entries(sighting).forEach(function([key, value]) {
       console.log(key, value);
       var cell = row.append("td");
@@ -17,8 +18,9 @@ tableData.forEach(function(sighting) {
   });
 
 
-// filter button
+// create button
 var button = d3.select("#filter-btn");
+//
 button.on("click", function() {
     tbody.html("");
     var inputElement = d3.select("#datetime");
